@@ -1,0 +1,36 @@
+/* src/pages/AboutUs.css */
+.about-us {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.about-us .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensures the container spans the full width */
+  /* min-height: 100vh; */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.about-us h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: black;
+
+}
+.about-us h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.about-us p {
+  font-size: 1.2em;
+  color: black;
+}
+
+  

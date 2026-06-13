@@ -1,0 +1,56 @@
+.hero {
+  background-color: #5d4037;
+  height: 100vh; /* Make hero section take the full height of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+
+.logo img {
+  width: 80px; /* Adjust the size of the logo as needed */
+  height: 80px;
+}
+.hero-image img {
+  width: 100%;
+  max-width: 800px;
+  max-height: 400px;
+}
+
+.hero-text {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.hero-text h2 {
+  font-size: 2em;
+  margin: 0 0 10px;
+}
+
+.hero-text p {
+  font-size: 1em;
+  margin: 0 0 20px;
+}
+
+.hero-text button {
+  background-color: #ff9800;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  color: #fff;
+}
+
+
+  

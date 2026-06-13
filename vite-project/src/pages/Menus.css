@@ -1,0 +1,122 @@
+ /* src/pages/Menus.css */
+.menus {
+  padding: 40px 20px;
+  background-color: #5d4037;
+  color: #fff;
+  min-width: 100vw;
+}
+
+.menus h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.menu-category {
+  margin-bottom: 40px;
+}
+
+.menu-category h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.menu-item {
+  background-color: #4e342e;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.menu-item-details {
+  margin-top: 10px;
+}
+
+.menu-item-details h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.menu-item-details p {
+  font-size: 1em;
+}
+
+.menu-item-details span {
+  font-size: 1.2em;
+  color: #ff9800;
+}
+
+.cart-item button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.order-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.order-form {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: rgb(121, 79, 57);
+  width: 500px;
+}
+
+.order-form h2 {
+  margin-bottom: 20px;
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.order-form input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.order-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+  
