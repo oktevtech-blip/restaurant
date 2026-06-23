@@ -1,36 +1,326 @@
-/* src/pages/AboutUs.css */
-.about-us {
-  padding: 40px 20px;
-  text-align: center;
-  background-color: white;
+/* src/pages/About.css */
+
+.about-page {
+  background:
+    linear-gradient(
+      180deg,
+      #0f172a,
+      #111827
+    );
+
+  color: white;
+
+  min-height: 100vh;
 }
 
-.about-us .container {
+/* ===================================
+   HERO SECTION
+=================================== */
+
+.about-hero {
+  position: relative;
+
+  min-height: 60vh;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Ensures the container spans the full width */
-  /* min-height: 100vh; */
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212,175,55,.15),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827
+    );
 }
 
-.about-us h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: black;
+.about-overlay {
+  position: absolute;
+  inset: 0;
 
-}
-.about-us h2 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  color: black;
-}
-
-.about-us p {
-  font-size: 1.2em;
-  color: black;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,.03),
+      transparent 50%
+    );
 }
 
-  
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 900px;
+
+  padding: 2rem;
+}
+
+.about-tag {
+  display: inline-block;
+
+  padding: .7rem 1.2rem;
+
+  border-radius: 999px;
+
+  background:
+    rgba(212,175,55,.12);
+
+  border:
+    1px solid rgba(212,175,55,.25);
+
+  color: #d4af37;
+
+  margin-bottom: 1.5rem;
+}
+
+.about-hero h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  line-height: 1.1;
+
+  margin-bottom: 1.5rem;
+}
+
+.about-hero h1 span {
+  color: #d4af37;
+}
+
+.about-hero p {
+  color: #cbd5e1;
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+}
+
+/* ===================================
+   CONTAINER
+=================================== */
+
+.about-container {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 6rem 2rem;
+}
+
+/* ===================================
+   STORY SECTION
+=================================== */
+
+.story-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4rem;
+
+  align-items: center;
+
+  margin-bottom: 8rem;
+}
+
+.story-text h2 {
+  font-size: 3rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.story-text p {
+  color: #94a3b8;
+
+  line-height: 1.9;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 1.05rem;
+}
+
+.story-image img {
+  width: 100%;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+}
+
+/* ===================================
+   STATS
+=================================== */
+
+.stats-section {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 2rem;
+
+  margin-bottom: 8rem;
+}
+
+.stat-card {
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  transition: .3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    rgba(212,175,55,.3);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+
+  color: #d4af37;
+
+  margin-bottom: .5rem;
+}
+
+.stat-card span {
+  color: #94a3b8;
+}
+
+/* ===================================
+   MISSION
+=================================== */
+
+.mission-section {
+  text-align: center;
+
+  margin-bottom: 8rem;
+}
+
+.mission-section h2 {
+  font-size: 3rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.mission-section p {
+  max-width: 850px;
+
+  margin: auto;
+
+  color: #94a3b8;
+
+  line-height: 1.9;
+
+  font-size: 1.1rem;
+}
+
+/* ===================================
+   VALUES
+=================================== */
+
+.values-section h2 {
+  text-align: center;
+
+  font-size: 3rem;
+
+  margin-bottom: 3rem;
+}
+
+.values-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 2rem;
+}
+
+.value-card {
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  transition: .3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    rgba(212,175,55,.3);
+}
+
+.value-card h3 {
+  color: #d4af37;
+
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: #94a3b8;
+
+  line-height: 1.8;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media (max-width: 992px) {
+
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .about-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .story-text h2,
+  .mission-section h2,
+  .values-section h2 {
+    font-size: 2.2rem;
+  }
+
+}

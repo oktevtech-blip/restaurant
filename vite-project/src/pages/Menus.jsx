@@ -1,388 +1,275 @@
-import React, { useState } from 'react';
-import './Menus.css';
+// src/pages/Menus.jsx
+
+import React, { useState } from "react";
+import "./Menus.css";
 
 const menuData = {
   appetizers: [
     {
-      name: 'Burgers',
-      description: 'High quality beef medium to well with cheese and bacon on a multigrain bun',
-      price: 'Shs. 10,000',
-      img: '/burgers.png',
+      name: "Burgers",
+      description:
+        "High quality beef medium to well with cheese and bacon on a multigrain bun.",
+      price: "UGX 10,000",
+      img: "/burgers.png",
     },
     {
-      name: 'Pizza',
-      description: 'Delicious. Hot. Spicy. Scrumptious. Yummy. Diced tomatoes, crust, sauce, and toppings',
-      price: 'Shs.35,000',
-      img: '/pizza.png',
+      name: "Pizza",
+      description:
+        "Delicious, hot and loaded with fresh toppings and rich flavors.",
+      price: "UGX 35,000",
+      img: "/pizza.png",
     },
     {
-      name: 'Hot dogs',
-      description: 'A dish consisting of a grilled, steamed, or boiled sausage served in the slit of a partially sliced bun',
-      price: 'Shs.10,000',
-      img: '/hot-dogs.png',
+      name: "Hot Dogs",
+      description:
+        "Grilled sausage served in a soft bun with delicious toppings.",
+      price: "UGX 10,000",
+      img: "/hot-dogs.png",
     },
-    // Add more appetizers here
   ],
+
   salads: [
     {
-      name: 'North African Carrot Salad',
-      description: '',
-      price: 'Shs.2000',
-      img: '/carrotsalad.png',
+      name: "North African Carrot Salad",
+      description:
+        "Fresh carrots blended with authentic North African spices.",
+      price: "UGX 2,000",
+      img: "/carrotsalad.png",
     },
     {
-      name: 'Kachumbari',
-      description: 'East African Salad',
-      price: 'Shs.1000',
-      img: '/kachumbari.png',
-    },{
-      name: ' Egyptian Salata Baladi Salad',
-      description: '',
-      price: 'Shs. 2000',
-      img: '/egypt.png',
+      name: "Kachumbari",
+      description:
+        "Traditional East African salad with tomatoes and onions.",
+      price: "UGX 1,000",
+      img: "/kachumbari.png",
     },
-    // Add more salads here
+    {
+      name: "Egyptian Salata Baladi",
+      description:
+        "A refreshing Mediterranean-inspired vegetable salad.",
+      price: "UGX 2,000",
+      img: "/egypt.png",
+    },
   ],
+
   fruits: [
     {
-      name: 'apples',
-      description: 'A mix of fresh seasonal fruits.',
-      price: 'Shs.1000 each',
-      img: '/apples.png',
+      name: "Apples",
+      description: "Fresh juicy apples selected daily.",
+      price: "UGX 1,000",
+      img: "/apples.png",
     },
     {
-      name: 'mangoes',
-      description: 'A mix of fresh seasonal fruits.',
-      price: 'Shs.1000 each',
-      img: '/mangoes.png',
+      name: "Mangoes",
+      description: "Sweet tropical mangoes full of flavor.",
+      price: "UGX 1,000",
+      img: "/mangoes.png",
     },
     {
-      name: 'pineapples',
-      description: 'A mix of fresh seasonal fruits.',
-      price: 'Shs.2000 each',
-      img: '/pineapples.png',
+      name: "Pineapples",
+      description: "Fresh pineapples rich in natural sweetness.",
+      price: "UGX 2,000",
+      img: "/pineapples.png",
     },
-    // Add more fruits here
+    {
+      name: "grapes",
+      description: "Grapes rich in vitamins with sweet taste.",
+      price: "UGX 2,000",
+      img: "/grapes.png",
+    },
   ],
+
   breakfast: [
     {
-      name: 'samosas',
-      description: 'Cruncy and delicious with minced meat.',
-      price: 'Shs.1,000 each',
-      img: '/samosa.png',
+      name: "Samosas",
+      description:
+        "Crunchy pastries filled with seasoned minced meat.",
+      price: "UGX 1,000",
+      img: "/samosa.png",
     },
     {
-      name: 'Pancakes',
-      description: 'Fluffy pancakes served with syrup and butter.',
-      price: 'Shs.7,000',
-      img: 'pancakes.png',
+      name: "Pancakes",
+      description:
+        "Fluffy pancakes served with syrup and butter.",
+      price: "UGX 7,000",
+      img: "/pancakes.png",
     },
     {
-      name: 'Chapati',
-      description: 'Soft and pliable',
-      price: 'Shs.1,000',
-      img: '/chapati.png',
+      name: "Chapati",
+      description:
+        "Soft and delicious freshly prepared chapati.",
+      price: "UGX 1,000",
+      img: "/chapati.png",
     },
-    // Add more breakfast items here
   ],
+
   lunch: [
     {
-      name: 'Grilled Chicken',
-      description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.',
-      price: 'Shs.30,000',
-      img: '/chicken.png',
+      name: "Grilled Chicken",
+      description:
+        "Tender grilled chicken seasoned with African spices.",
+      price: "UGX 30,000",
+      img: "/chicken.png",
     },
     {
-      name: 'Grilled Chicken Sandwich',
-      description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.',
-      price: 'Shs.9,000',
-      img: '/path/to/chicken-sandwich.jpg',
+      name: "Egusi stew",
+      description:
+        "Popular in West African countries, egusi stew is made with egusi, or melon seeds, which have been ground and cooked in a tomato and/or bell pepper stew.",
+      price: "UGX 30,000",
+      img: "/egusi.png",
     },
     {
-      name: 'Grilled Chicken Sandwich',
-      description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.',
-      price: 'Shs.9,000',
-      img: '/path/to/chicken-sandwich.jpg',
+      name: "Red Red",
+      description:
+        "Recipe author Gabi Odebode says, 'Growing up in Koforidua, Ghana, red red bean stew was part of a weekly meal.'",
+      price: "UGX 10,000",
+      img: "/red.png",
     },
-    // Add more lunch items here
   ],
+
   snacks: [
     {
-      name: 'Cheese Nachos',
-      description: 'Crispy nachos with melted cheese and jalapenos.',
-      price: 'Shs.6,000',
-      img: '/path/to/nachos.jpg',
+      name: "Cheese Nachos",
+      description:
+        "Crispy nachos topped with melted cheese.",
+      price: "UGX 6,000",
+      img: "/nachos.png",
     },
-    {
-      name: 'Cheese Nachos',
-      description: 'Crispy nachos with melted cheese and jalapenos.',
-      price: 'Shs.6,000',
-      img: '/path/to/nachos.jpg',
-    },
-    {
-      name: 'Cheese Nachos',
-      description: 'Crispy nachos with melted cheese and jalapenos.',
-      price: 'Shs.6,000',
-      img: '/path/to/nachos.jpg',
-    },
-    // Add more snacks here
   ],
 };
 
 const Menus = () => {
-  const [cart, setCart] = useState([]);
-  const [orderReceived, setOrderReceived] = useState(false);
-  const [showOrderForm, setShowOrderForm] = useState(false);
-  const [customerName, setCustomerName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const addToCart = (item) => {
-    setCart([...cart, item]);
-  };
+  const categories = Object.keys(menuData);
 
-  const removeFromCart = (indexToRemove) => {
-    setCart(cart.filter((_, index) => index !== indexToRemove));
-  };
+  const filteredItems =
+    activeCategory === "all"
+      ? Object.values(menuData).flat()
+      : menuData[activeCategory];
 
-  const calculateTotal = () => {
-    return cart.reduce((total, item) => total + parseFloat(item.price.replace('Shs.', '').replace(',', '')), 0);
-  };
-
-  const handleOrder = () => {
-    setShowOrderForm(true);
-  };
-
-  const handleContinue = () => {
-    setOrderReceived(true);
-    setCart([]);
-    setCustomerName('');
-    setPhoneNumber('');
-    setShowOrderForm(false);
-    setTimeout(() => setOrderReceived(false), 3000); // Hide the message after 3 seconds
-  };
+  const displayedItems = filteredItems.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="menus">
-      <h1>Menus</h1>
-      {Object.keys(menuData).map(category => (
-        <div key={category} className="menu-category">
-          <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-          <div className="menu-items">
-            {menuData[category].map((item, index) => (
-              <div key={index} className="menu-item">
-                <img src={item.img} alt={item.name} />
-                <div className="menu-item-details">
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                  <span>{item.price}</span>
-                  <button onClick={() => addToCart(item)}>Add to Cart</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div className="cart">
-        <h2>Cart</h2>
-        <div className="cart-items">
-          {cart.map((item, index) => (
-            <div key={index} className="cart-item">
-              <span>{item.name} - {item.price}</span>
-              <button onClick={() => removeFromCart(index)}>Remove</button>
-            </div>
+    <div className="menu-page">
+
+      <section className="menu-hero">
+        <span className="menu-tag">
+          Authentic African Cuisine
+        </span>
+
+        <h1>Our Menu</h1>
+
+        <p>
+          Discover carefully crafted dishes inspired by African
+          traditions, culture, and modern culinary excellence.
+        </p>
+      </section>
+
+      <section className="menu-controls">
+
+        <input
+          type="text"
+          className="menu-search"
+          placeholder="Search dishes..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        <div className="category-tabs">
+
+          <button
+            className={
+              activeCategory === "all" ? "active" : ""
+            }
+            onClick={() => setActiveCategory("all")}
+          >
+            All
+          </button>
+
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={
+                activeCategory === category
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setActiveCategory(category)
+              }
+            >
+              {category.charAt(0).toUpperCase() +
+                category.slice(1)}
+            </button>
           ))}
+
         </div>
-        <div className="cart-total">
-          <h3>Total: Shs. {calculateTotal()}</h3>
+      </section>
+
+      <section className="menu-grid">
+
+        {displayedItems.map((item, index) => (
+          <div className="menu-card" key={index}>
+
+            <div className="menu-card-image">
+              <img
+                src={item.img}
+                alt={item.name}
+              />
+            </div>
+
+            <div className="menu-card-content">
+
+              <div className="menu-rating">
+                ★★★★★
+              </div>
+
+              <h3>{item.name}</h3>
+
+              <p>{item.description}</p>
+
+              <div className="menu-card-footer">
+
+                <span>{item.price}</span>
+
+                <button>
+                  View Details
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+        ))}
+
+      </section>
+
+      <section className="menu-stats">
+
+        <div>
+          <h2>50+</h2>
+          <span>Menu Items</span>
         </div>
-        <button className="order-button" onClick={handleOrder}>Order</button>
-      </div>
-      {showOrderForm && (
-        <div className="order-form">
-          <h2>Order Form</h2>
-          <label>
-            Name:
-            <input
-              type="text"
-              value={customerName}
-              onChange={(e) => setCustomerName(e.target.value)}
-            />
-          </label>
-          <label>
-            Phone Number:
-            <input
-              type="text"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-          </label>
-          <button onClick={handleContinue}>Continue</button>
+
+        <div>
+          <h2>10K+</h2>
+          <span>Happy Customers</span>
         </div>
-      )}
-      {orderReceived && <p className="order-received-message">Your order has been received!</p>}
+
+        <div>
+          <h2>4.9★</h2>
+          <span>Average Rating</span>
+        </div>
+
+      </section>
+
     </div>
   );
-}
+};
 
 export default Menus;
-
-// import React, { useState, useEffect } from 'react';
-// import './Menus.css';
-
-// const menuData = {
-//   appetizers: [
-//     { name: 'Burgers', description: 'High quality beef medium to well with cheese and bacon on a multigrain bun', price: 'Shs. 10,000', img: '/burgers.png' },
-//     { name: 'Pizza', description: 'Delicious. Hot. Spicy. Scrumptious. Yummy. Diced tomatoes, crust, sauce, and toppings', price: 'Shs.35,000', img: '/pizza.png' },
-//     { name: 'Hot dogs', description: 'A dish consisting of a grilled, steamed, or boiled sausage served in the slit of a partially sliced bun', price: 'Shs.10,000', img: '/hot-dogs.png' },
-//     // Add more appetizers here
-//   ],
-//   salads: [
-//     { name: 'North African Carrot Salad', description: '', price: 'Shs.2000', img: '/carrotsalad.png' },
-//     { name: 'Kachumbari', description: 'East African Salad', price: 'Shs.1000', img: '/kachumbari.png' },
-//     { name: 'Egyptian Salata Baladi Salad', description: '', price: 'Shs. 2000', img: '/egypt.png' },
-//     // Add more salads here
-//   ],
-//   fruits: [
-//     { name: 'apples', description: 'A mix of fresh seasonal fruits.', price: 'Shs.1000 each', img: '/apples.png' },
-//     { name: 'mangoes', description: 'A mix of fresh seasonal fruits.', price: 'Shs.1000 each', img: '/mangoes.png' },
-//     { name: 'pineapples', description: 'A mix of fresh seasonal fruits.', price: 'Shs.2000 each', img: '/pineapples.png' },
-//     // Add more fruits here
-//   ],
-//   breakfast: [
-//     { name: 'Pancakes', description: 'Fluffy pancakes served with syrup and butter.', price: 'Shs.7,000', img: '/path/to/pancakes.jpg' },
-//     { name: 'Pancakes', description: 'Fluffy pancakes served with syrup and butter.', price: 'Shs.7,000', img: '/path/to/pancakes.jpg' },
-//     { name: 'Pancakes', description: 'Fluffy pancakes served with syrup and butter.', price: 'Shs.7,000', img: '/path/to/pancakes.jpg' },
-//     // Add more breakfast items here
-//   ],
-//   lunch: [
-//     { name: 'Grilled Chicken Sandwich', description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.', price: 'Shs.9,000', img: '/path/to/chicken-sandwich.jpg' },
-//     { name: 'Grilled Chicken Sandwich', description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.', price: 'Shs.9,000', img: '/path/to/chicken-sandwich.jpg' },
-//     { name: 'Grilled Chicken Sandwich', description: 'Grilled chicken sandwich with lettuce, tomato, and mayo.', price: 'Shs.9,000', img: '/path/to/chicken-sandwich.jpg' },
-//     // Add more lunch items here
-//   ],
-//   snacks: [
-//     { name: 'Cheese Nachos', description: 'Crispy nachos with melted cheese and jalapenos.', price: 'Shs.6,000', img: '/path/to/nachos.jpg' },
-//     { name: 'Cheese Nachos', description: 'Crispy nachos with melted cheese and jalapenos.', price: 'Shs.6,000', img: '/path/to/nachos.jpg' },
-//     { name: 'Cheese Nachos', description: 'Crispy nachos with melted cheese and jalapenos.', price: 'Shs.6,000', img: '/path/to/nachos.jpg' },
-//     // Add more snacks here
-//   ],
-// };
-
-// const Menus = () => {
-//   const [cart, setCart] = useState([]);
-//   const [showOrderForm, setShowOrderForm] = useState(false);
-//   const [name, setName] = useState('');
-//   const [phone, setPhone] = useState('');
-//   const [orderMessage, setOrderMessage] = useState('');
-
-//   const addToCart = (item) => {
-//     setCart([...cart, item]);
-//   };
-
-//   const removeFromCart = (index) => {
-//     const newCart = cart.filter((_, i) => i !== index);
-//     setCart(newCart);
-//   };
-
-//   const calculateTotal = () => {
-//     return cart.reduce((total, item) => total + parseFloat(item.price.replace('Shs.', '').replace(',', '')), 0);
-//   };
-
-//   const handleOrder = () => {
-//     setShowOrderForm(true);
-//   };
-
-//   const submitOrder = async () => {
-//     const orderDetails = {
-//       name,
-//       phone,
-//       cart
-//     };
-
-//     try {
-//       const response = await fetch('http://localhost:5000/order', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(orderDetails)
-//       });
-
-//       if (response.ok) {
-//         setOrderMessage('Your order has been received!');
-//         setCart([]);
-//         setName('');
-//         setPhone('');
-//       } else {
-//         setOrderMessage('Failed to place order. Please try again.');
-//       }
-//     } catch (error) {
-//       setOrderMessage('Error: ' + error.message);
-//     }
-//   };
-
-//   return (
-//     <div className="menus">
-//       <h1>Menus</h1>
-//       {Object.keys(menuData).map(category => (
-//         <div key={category} className="menu-category">
-//           <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-//           <div className="menu-items">
-//             {menuData[category].map((item, index) => (
-//               <div key={index} className="menu-item">
-//                 <img src={item.img} alt={item.name} />
-//                 <div className="menu-item-details">
-//                   <h3>{item.name}</h3>
-//                   <p>{item.description}</p>
-//                   <span>{item.price}</span>
-//                   <button onClick={() => addToCart(item)}>Add to Cart</button>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       ))}
-//       <div className="cart">
-//         <h2>Cart</h2>
-//         {cart.map((item, index) => (
-//           <div key={index} className="cart-item">
-//             <span>{item.name} - {item.price}</span>
-//             <button onClick={() => removeFromCart(index)}>Remove</button>
-//           </div>
-//         ))}
-//         <div className="cart-total">
-//           <h3>Total: Shs. {calculateTotal()}</h3>
-//         </div>
-//         <button className="order-button" onClick={handleOrder}>Order</button>
-//       </div>
-
-//       {showOrderForm && (
-//         <div className="order-form">
-//           <h2>Order Details</h2>
-//           <input
-//             type="text"
-//             placeholder="Name"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//           />
-//           <input
-//             type="text"
-//             placeholder="Phone"
-//             value={phone}
-//             onChange={(e) => setPhone(e.target.value)}
-//           />
-//           <button onClick={submitOrder}>Continue</button>
-//         </div>
-//       )}
-
-//       {orderMessage && <div className="order-message">{orderMessage}</div>}
-//     </div>
-//   );
-// }
-
-// export default Menus;
-
-
-
-
-

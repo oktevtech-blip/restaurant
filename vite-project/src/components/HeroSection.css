@@ -1,56 +1,278 @@
+/* src/components/HeroSection.css */
+
 .hero {
-  background-color: #5d4037;
-  height: 100vh; /* Make hero section take the full height of the viewport */
+  position: relative;
+
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100vw;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212,175,55,.15),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827,
+      #1e293b
+    );
+
+  overflow: hidden;
 }
 
-.hero .container {
-  display: flex;
-  flex-direction: column;
+/* ---------- BACKGROUND EFFECT ---------- */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,.03),
+      transparent 40%
+    );
+
+  pointer-events: none;
+}
+
+/* ---------- LAYOUT ---------- */
+
+.hero-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 4rem 2rem;
+
+  display: grid;
+
+  grid-template-columns: 1.1fr 1fr;
+
+  gap: 5rem;
+
   align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  padding: 20px;
+
+  position: relative;
+  z-index: 2;
 }
 
-
-.logo img {
-  width: 80px; /* Adjust the size of the logo as needed */
-  height: 80px;
-}
-.hero-image img {
-  width: 100%;
-  max-width: 800px;
-  max-height: 400px;
-}
+/* ---------- TEXT ---------- */
 
 .hero-text {
-  margin-top: 20px;
-  color: #fff;
+  color: white;
 }
 
-.hero-text h2 {
-  font-size: 2em;
-  margin: 0 0 10px;
+.hero-tag {
+  display: inline-block;
+
+  padding: 0.6rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(212,175,55,.15);
+
+  border: 1px solid rgba(212,175,55,.3);
+
+  color: #d4af37;
+
+  font-size: 0.9rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  margin-bottom: 1.5rem;
+}
+
+.hero-text h1 span {
+  color: #d4af37;
 }
 
 .hero-text p {
-  font-size: 1em;
-  margin: 0 0 20px;
+  font-size: 1.15rem;
+
+  color: #cbd5e1;
+
+  line-height: 1.8;
+
+  max-width: 650px;
+
+  margin-bottom: 2rem;
 }
 
-.hero-text button {
-  background-color: #ff9800;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  color: #fff;
+/* ---------- BUTTONS ---------- */
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 3rem;
 }
 
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5d76e
+  );
 
-  
+  color: #111827;
+
+  text-decoration: none;
+
+  padding: 1rem 1.8rem;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 35px rgba(212,175,55,.3);
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255,255,255,.2);
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 1rem 1.8rem;
+
+  border-radius: 999px;
+
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* ---------- STATS ---------- */
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-stats h3 {
+  font-size: 1.8rem;
+  color: #d4af37;
+  margin-bottom: 0.3rem;
+}
+
+.hero-stats span {
+  color: #94a3b8;
+}
+
+/* ---------- IMAGE ---------- */
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-card {
+  position: relative;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+
+  animation: float 5s ease-in-out infinite;
+}
+
+.image-card img {
+  width: 100%;
+  max-width: 650px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* ---------- FLOAT ANIMATION ---------- */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 992px) {
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 576px) {
+
+  .hero-container {
+    padding: 3rem 1.2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    gap: 2rem;
+  }
+
+}

@@ -1,52 +1,243 @@
 /* src/components/Header.css */
+
 .header {
-  background-color: #3e2723;
-  padding: 10px 0;
-  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(18px);
+
+  background: rgba(15, 23, 42, 0.92);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.header .container {
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 1rem 2rem;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: 80px;
+  justify-content: space-between;
 }
-.logo {
+
+/* ---------- BRAND ---------- */
+
+.brand {
   display: flex;
-  position: absolute;
-  object-fit: contain;
-  top: 5px;
-  left: 40px;
-  max-width: 100px;
+  align-items: center;
+  gap: 1rem;
 
-}
-
-.header-info {
-  color: #fff;
-  font-size: 0.9em;
-}
-
-.header h1 {
-  margin: 0;
-  color: #fff;
-  font-size: 2em;
-}
-
-.header nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 15px;
-  margin: 10px 0 0;
-}
-
-.header nav ul li {
-  display: inline;
-}
-
-.header nav ul li a {
-  color: #fff;
   text-decoration: none;
 }
 
-  
+.brand img {
+  width: 60px;
+  height: 60px;
+
+  object-fit: contain;
+}
+
+.brand h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.brand span {
+  display: block;
+
+  color: #94a3b8;
+
+  font-size: 0.8rem;
+
+  margin-top: 0.2rem;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: #d4af37;
+
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: #d4af37;
+}
+
+/* ---------- ACTIVE ROUTE ---------- */
+
+.active-link {
+  color: #d4af37 !important;
+}
+
+.active-link::after {
+  width: 100% !important;
+}
+
+/* ---------- CTA BUTTON ---------- */
+
+.reservation-btn {
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  color: #111827 !important;
+
+  padding: 0.8rem 1.4rem;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+
+  transition: all 0.3s ease;
+}
+
+.reservation-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(212, 175, 55, 0.35);
+}
+
+.reservation-btn::after {
+  display: none;
+}
+
+/* ---------- MOBILE BUTTON ---------- */
+
+.menu-btn {
+  display: none;
+
+  background: transparent;
+
+  border: none;
+
+  color: white;
+
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 1024px) {
+
+  .nav {
+    gap: 1.2rem;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+  }
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: #0f172a;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    padding: 2rem;
+
+    display: none;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.08);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .brand img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 480px) {
+
+  .header-container {
+    padding: 1rem;
+  }
+
+  .brand h1 {
+    font-size: 1rem;
+  }
+
+  .brand span {
+    font-size: 0.75rem;
+  }
+
+}
